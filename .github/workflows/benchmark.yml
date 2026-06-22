@@ -2,18 +2,19 @@ name: TypeScript Benchmark
 on:
   pull_request:
     paths:
-      - ".github/workflows/benchmark.yml"
-      - "package.json"
-      - "types/**"
-      - "benchmarks/typescript/**"
+      - .github/workflows/benchmark.yml
+      - package.json
+      - types/**
+      - benchmarks/typescript/**
   push:
     branches:
       - master
+      - main
     paths:
-      - ".github/workflows/benchmark.yml"
-      - "package.json"
-      - "types/**"
-      - "benchmarks/typescript/**"
+      - .github/workflows/benchmark.yml
+      - package.json
+      - types/**
+      - benchmarks/typescript/**
 permissions:
   contents: read
 

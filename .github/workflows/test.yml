@@ -2,18 +2,18 @@ name: Test
 on:
   pull_request:
     paths:
-      - ".github/workflows/test.yml"
-      - "package.json"
-      - "index.js"
-      - "lib/**"
-      - "test/**.js"
+      - .github/workflows/test.yml
+      - package.json
+      - index.js
+      - lib/**
+      - test/**.js
   push:
     paths:
-      - ".github/workflows/test.yml"
-      - "package.json"
-      - "index.js"
-      - "lib/**"
-      - "test/**.js"
+      - .github/workflows/test.yml
+      - package.json
+      - index.js
+      - lib/**
+      - test/**.js
 permissions:
   contents: read
 
@@ -46,7 +46,7 @@ jobs:
 
       - name: Load MongoDB binary cache
         id: cache-mongodb-binaries
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.cache/mongodb-binaries
           key: ${{ matrix.os }}-${{ matrix.mongodb }}
@@ -74,7 +74,7 @@ jobs:
           node-version: 20
       - name: Load MongoDB binary cache
         id: cache-mongodb-binaries
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.cache/mongodb-binaries
           key: deno-${{ env.MONGOMS_VERSION }}
@@ -107,7 +107,7 @@ jobs:
   dependency-review:
     name: Dependency Review
     if: github.event_name == 'pull_request'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
       contents: read
     steps:

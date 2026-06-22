@@ -2,24 +2,25 @@ name: Typescript Types
 on:
   pull_request:
     paths:
-      - '.github/workflows/tsd.yml'
-      - 'package.json'
-      - 'types/**'
-      - 'test/types/**'
+      - .github/workflows/tsd.yml
+      - package.json
+      - types/**
+      - test/types/**
   push:
     branches:
       - master
+      - main
     paths:
-      - '.github/workflows/tsd.yml'
-      - 'package.json'
-      - 'types/**'
-      - 'test/types/**'
+      - .github/workflows/tsd.yml
+      - package.json
+      - types/**
+      - test/types/**
 permissions:
   contents: read
 
 jobs:
   lint:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     name: Lint TS-Files
     steps:
       - uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4.1.0
@@ -37,7 +38,7 @@ jobs:
   test-ts-types:
     needs:
       - lint
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     name: Test Typescript Types
     steps:
       - uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4.1.0

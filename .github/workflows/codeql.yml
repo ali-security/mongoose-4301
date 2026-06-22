@@ -1,19 +1,20 @@
-name: "Code Scanning - Action"
+name: Code Scanning - Action
 
 on:
   pull_request:
     paths:
-      - 'lib/**'
+      - lib/**
   push:
     branches:
       - master
+      - main
     paths:
-      - 'lib/**'
+      - lib/**
 
 jobs:
   CodeQL-Build:
-    # CodeQL runs on ubuntu-latest, windows-latest, and macos-latest
-    runs-on: ubuntu-latest
+    # CodeQL runs on ubuntu-24.04, windows-2025, and macos-15
+    runs-on: ubuntu-24.04
 
     permissions:
       # required for all workflows
@@ -27,7 +28,7 @@ jobs:
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v2
         with:
-           config-file: ./.github/codeql/codeql-config.yml
+          config-file: ./.github/codeql/codeql-config.yml
         # Override language selection by uncommenting this and choosing your languages
         # with:
         #   languages: go, javascript, csharp, python, cpp, java

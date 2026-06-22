@@ -2,30 +2,31 @@ name: Documentation
 on:
   pull_request:
     paths:
-      - '.github/workflows/documentation.yml'
-      - 'package.json'
-      - 'docs/**'
-      - 'lib'
-      - 'test'
-      - 'website.js'
-      - 'CHANGELOG.md'
+      - .github/workflows/documentation.yml
+      - package.json
+      - docs/**
+      - lib
+      - test
+      - website.js
+      - CHANGELOG.md
   push:
     branches:
       - master
+      - main
     paths:
-      - '.github/workflows/documentation.yml'
-      - 'package.json'
-      - 'docs/**'
-      - 'lib'
-      - 'test'
-      - 'website.js'
-      - 'CHANGELOG.md'
+      - .github/workflows/documentation.yml
+      - package.json
+      - docs/**
+      - lib
+      - test
+      - website.js
+      - CHANGELOG.md
 permissions:
   contents: read
 
 jobs:
   lint-documentation:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     name: Lint Markdown files
     steps:
       - uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4.1.0

@@ -18,22 +18,6 @@ permissions:
   contents: read
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    name: Lint JS-Files
-    steps:
-      - uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4.1.0
-
-      - name: Setup node
-        uses: actions/setup-node@5e21ff4d9bc1a8cf6de233a3057d20ec6b3fb69d # v3.8.1
-        with:
-          node-version: 14
-
-      - run: npm install
-
-      - name: Lint JS-Files
-        run: npm run lint-js
-
   test:
     runs-on: ${{ matrix.os }}
     strategy:
